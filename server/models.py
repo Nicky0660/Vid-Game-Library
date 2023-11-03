@@ -1,7 +1,14 @@
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy.orm import validates
-from config import db
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import MetaData
+
+metadata = MetaData(naming_convention={
+    "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
+})
+db = SQLAlchemy(metadata=metadata)
+
 
 # Models go here!
 #Main models are games, genres, consolegames, consoles. May add in user_games and users in the future.
@@ -71,13 +78,13 @@ class Consoles(db.Model, SerializerMixin):
 
 
 #optional stretch goal models
-class UserGames(db.Model, SerializerMixin):
-    __tablename__='user_games'
-    game_id = db.Column(db.Integer, db.ForeignKey('games.id'))
-    console_id = db.Column(db.Integer, db.ForeignKey('consoles.id'))
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+# class UserGames(db.Model, SerializerMixin):
+#     __tablename__='user_games'
+#     game_id = db.Column(db.Integer, db.ForeignKey('games.id'))
+#     console_id = db.Column(db.Integer, db.ForeignKey('consoles.id'))
+#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
-class Users(db.Model, SerializerMixin):
-    __tablename__='users'
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String)
+# class User(db.Model, SerializerMixin):
+#     __tablename__='users'
+#     id = db.Column(db.Integer, primary_key=True)
+#     name = db.Column(db.String)
