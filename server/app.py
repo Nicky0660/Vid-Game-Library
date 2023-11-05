@@ -5,7 +5,8 @@ from flask import Flask, make_response, jsonify, request
 # Remote library imports
 from flask import request
 from flask_restful import Resource
-
+from flask_migrate import Migrate
+migrate = Migrate(app, db)
 # Local imports
 from config import app, db, api
 # Add your model imports
@@ -24,8 +25,42 @@ def games():
         games = Games.query.all()
         games_dict = [game.to_dict(rules=(''))for game in games]
         response = make_response(games_dict, 200)
+    elif request.method == 'POST':
+        form_data = request.get_json()
+        new_games = Games(
+            title = form_data['title'],
+            release_yr = form_data['release_yr']
+            )
+        db.session.add(new_games)
+        db.session.commit()
+        response = make_response(new_games.to_dict(), 201)
     else:
         response = make_response('Error games not found!', 404)
+    return response
+
+@app.route('/games/<int:id>', methods=['GET', 'DELETE', 'PATCH'])
+def games_by_id(id):
+    game = Games.query.filter(Games.id == id).first()
+    if game:
+        if request.method == 'GET':
+            response = make_response(games.to_dict(), 200)
+        elif request.method == 'DELETE':
+            db.session.delete(game)
+            db.session.commit()
+            response = make_response({}, 204)
+        elif request.method == 'PATCH':
+            form_data = request.get_json()
+            try:
+                for attr in form_data:
+                    setattr(game, attr, form_data.get(attr))
+                db.session.commit()
+                response = make_response(game.to_dict(), 202)
+            except ValueError:
+                response = make_response(
+                    {"game must have title and release year!"}, 400)
+    else:
+        response = make_response({"error": ("Game not found")}, 404)
+        return response
     return response
 
 @app.route('/consoles', methods=['GET'])
@@ -38,12 +73,19 @@ def consoles():
         response = make_response('Error console not found!', 404)
     return response
 
-@app.route('/genres', methods=['GET', 'POST', 'DELETE'])
+@app.route('/genres', methods=['GET', 'POST'])
 def genres():
     if request.method == 'GET':
         genres = Genres.query.all()
         genres_dict = [genre.to_dict(rules=(''))for genre in genres]
         response = make_response(genres_dict, 200)
+    elif request.method == 'POST':
+        form_data = request.get_json
+        new_genre = Genres(name = form_data['name']) 
+        db.session.add(new_genre)
+        db.session.commit()
+        response = make_response(new_genre.to_dict(), 201)
+    
     else:
         response = make_response('Error genres not found!', 404)
     return response
