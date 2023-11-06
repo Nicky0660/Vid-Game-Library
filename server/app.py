@@ -19,7 +19,7 @@ def index():
     return '<h1>Project Server</h1>'
 
 #model routes below
-@app.route('/games', methods=['GET', 'POST'])
+@app.route('/games', methods=['GET', 'POST']) ##fix post issue
 def games():
     if request.method == 'GET':
         games = Games.query.all()
@@ -40,7 +40,7 @@ def games():
             # for id in console_ids:
             #     ConsoleGame(game_id = new game id, console_id = id)
             # react needed first, this will appear later
-            
+            # ADD VALIDATIONS FOR ALL REQUIRED DATA
 
             response = make_response(new_game.to_dict(), 201)
         except ValueError:
@@ -57,7 +57,7 @@ def games_by_id(id):
     game = Games.query.filter(Games.id == id).first()
     if game:
         if request.method == 'GET':
-            response = make_response(games.to_dict(), 200)
+            response = make_response(game.to_dict(rules=('-genre.games',)), 200)
         elif request.method == 'DELETE':
             db.session.delete(game)
             db.session.commit()
@@ -81,7 +81,7 @@ def games_by_id(id):
 def consoles():
     if request.method == 'GET':
         consoles = Consoles.query.all()
-        consoles_dict = [console.to_dict()for console in consoles]
+        consoles_dict = [console.to_dict(rules=('-console_games', ))for console in consoles]
         response = make_response(consoles_dict, 200)
     else:
         response = make_response('Error console not found!', 404)
@@ -91,10 +91,10 @@ def consoles():
 def genres():
     if request.method == 'GET':
         genres = Genres.query.all()
-        genres_dict = [genre.to_dict()for genre in genres]
+        genres_dict = [genre.to_dict(rules=('-games',))for genre in genres]
         response = make_response(genres_dict, 200)
     elif request.method == 'POST':
-        form_data = request.get_json
+        form_data = request.get_json()
         new_genre = Genres(name = form_data['name']) 
         db.session.add(new_genre)
         db.session.commit()

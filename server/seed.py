@@ -115,8 +115,8 @@ if __name__ == '__main__':
 
         # Create and seed ConsoleGames
         consolegames = [
-            ConsoleGames(game_id = 1, console_id=1), 
-            ConsoleGames(game_id = 1, console_id=3),
+            ConsoleGames(game_id = 1, console_id = 1), 
+            ConsoleGames(game_id = 1, console_id = 3),
             ConsoleGames(game_id = 1, console_id = 4),
             # ConsoleGames(game_id = 2, console_id=3),
             # ConsoleGames(game_id = 2, console_id=4),                      
