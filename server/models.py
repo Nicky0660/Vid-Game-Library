@@ -18,6 +18,7 @@ class Games(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String)
     release_yr = db.Column(db.Integer)
+    img = db.Column(db.String)
     genre_id = db.Column(db.Integer, db.ForeignKey('genres.id'))
     serialize_rules = ('-console_games.game', '-genres.game')
 

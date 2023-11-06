@@ -31,7 +31,8 @@ def games():
             new_game = Games(
                 title = form_data['title'],
                 release_yr = form_data['release_yr'],
-                genre_id = form_data['genre-id']
+                genre_id = form_data['genre-id'],
+                img = form_data['img']
                 )
             db.session.add(new_game)
             db.session.commit()

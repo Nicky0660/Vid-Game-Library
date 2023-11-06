@@ -27,7 +27,7 @@ if __name__ == '__main__':
         # Create and seed the Games
         print('Picking Games ...')
         games = [
-            Games(title='DarkTide', release_yr=2022, genre_id=7),
+            Games(title='DarkTide', release_yr=2022, genre_id=7, img = 'https://cdn.mobygames.com/covers/11169388-warhammer-40000-darktide-windows-apps-front-cover.jpg' ),
             Games(title='God of War', release_yr=2005, genre_id=7),
             Games(title='GoldenEye 007', release_yr=1997, genre_id=3),
             Games(title='Super Smash Bros', release_yr=1999, genre_id=4),
