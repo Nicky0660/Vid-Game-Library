@@ -19,7 +19,7 @@ def index():
     return '<h1>Project Server</h1>'
 
 #model routes below
-@app.route('/games', methods=['GET', 'POST']) ##fix post issue
+@app.route('/games', methods=['GET', 'POST'])
 def games():
     if request.method == 'GET':
         games = Games.query.all()
@@ -31,16 +31,20 @@ def games():
             new_game = Games(
                 title = form_data['title'],
                 release_yr = form_data['release_yr'],
-                genre_id = form_data['genre-id'],
+                genre_id = form_data['genre_id'],
                 img = form_data['img']
                 )
             db.session.add(new_game)
             db.session.commit()
 
-            # for id in console_ids:
-            #     ConsoleGame(game_id = new game id, console_id = id)
-            # react needed first, this will appear later
-            # ADD VALIDATIONS FOR ALL REQUIRED DATA
+            console_ids = form_data['console_ids']
+
+            for id in console_ids:
+                new_console_game = ConsoleGames(game_id = new_game.id, console_id = id)
+
+                db.session.add(new_console_game)
+                db.session.commit()
+            
 
             response = make_response(new_game.to_dict(), 201)
         except ValueError:
