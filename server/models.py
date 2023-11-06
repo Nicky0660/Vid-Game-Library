@@ -21,7 +21,7 @@ class Games(db.Model, SerializerMixin):
     genre_id = db.Column(db.Integer, db.ForeignKey('genres.id'))
     serialize_rules = ('-console_games.game', '-genres.game')
 
-    genre = db.relationship('Genres', back_populates='game')
+    genre = db.relationship('Genres', back_populates='games')
     console_games = db.relationship('ConsoleGames', back_populates='game', cascade = 'all, delete-orphan')
 
     @validates('title')
