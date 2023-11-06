@@ -6,7 +6,7 @@ from flask import Flask, make_response, jsonify, request
 from flask import request
 from flask_restful import Resource
 from flask_migrate import Migrate
-migrate = Migrate(app, db)
+
 # Local imports
 from config import app, db, api
 # Add your model imports
@@ -23,17 +23,25 @@ def index():
 def games():
     if request.method == 'GET':
         games = Games.query.all()
-        games_dict = [game.to_dict(rules=(''))for game in games]
+        games_dict = [game.to_dict()for game in games]
         response = make_response(games_dict, 200)
     elif request.method == 'POST':
         form_data = request.get_json()
-        new_games = Games(
-            title = form_data['title'],
-            release_yr = form_data['release_yr']
+        try:
+            new_game = Games(
+                title = form_data['title'],
+                release_yr = form_data['release_yr'],
+                # genre_id = form_data['genre-id'],
+                # console = form_data['console']
+                )
+            db.session.add(new_game)
+            db.session.commit()
+            response = make_response(new_game.to_dict(), 201)
+        except ValueError:
+            response =make_response(
+                {'Game must title, release_yr,genre,and console'},
+                400
             )
-        db.session.add(new_games)
-        db.session.commit()
-        response = make_response(new_games.to_dict(), 201)
     else:
         response = make_response('Error games not found!', 404)
     return response
@@ -67,7 +75,7 @@ def games_by_id(id):
 def consoles():
     if request.method == 'GET':
         consoles = Consoles.query.all()
-        consoles_dict = [console.to_dict(rules=(''))for console in consoles]
+        consoles_dict = [console.to_dict()for console in consoles]
         response = make_response(consoles_dict, 200)
     else:
         response = make_response('Error console not found!', 404)
@@ -77,7 +85,7 @@ def consoles():
 def genres():
     if request.method == 'GET':
         genres = Genres.query.all()
-        genres_dict = [genre.to_dict(rules=(''))for genre in genres]
+        genres_dict = [genre.to_dict()for genre in genres]
         response = make_response(genres_dict, 200)
     elif request.method == 'POST':
         form_data = request.get_json
