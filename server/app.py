@@ -31,11 +31,16 @@ def games():
             new_game = Games(
                 title = form_data['title'],
                 release_yr = form_data['release_yr'],
-                # genre_id = form_data['genre-id'],
-                # console = form_data['console']
+                genre_id = form_data['genre-id']
                 )
             db.session.add(new_game)
             db.session.commit()
+
+            # for id in console_ids:
+            #     ConsoleGame(game_id = new game id, console_id = id)
+            # react needed first, this will appear later
+            
+
             response = make_response(new_game.to_dict(), 201)
         except ValueError:
             response =make_response(
