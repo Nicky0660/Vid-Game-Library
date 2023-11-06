@@ -23,7 +23,7 @@ def index():
 def games():
     if request.method == 'GET':
         games = Games.query.all()
-        games_dict = [game.to_dict()for game in games]
+        games_dict = [game.to_dict(rules=('-genre.games',))for game in games]
         response = make_response(games_dict, 200)
     elif request.method == 'POST':
         form_data = request.get_json()
