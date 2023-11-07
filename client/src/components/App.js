@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Games from './Games';
-import NavBar from "./NavBar";
+
+import NavBar from "./NavBar"
 import { Switch, Route } from "react-router-dom";
-import Genres from "./Genres";
-import Consoles from "./Consoles";
-import NewGameForm from "./NewGameForm";
+
 
 
 // const baseURL = ('http://127.0.0.1:5555')
@@ -13,9 +11,18 @@ function App() {
   const [games, setGames] = useState([])
   const[consoles, setConsoles]= useState([])
   const[genres, setGenres]= useState([])
+  const [isPopUpOpen, setPopUpOpen] = useState(false);
+  
+  const closePopUp = () => {
+    setPopUpOpen(false);
+  };
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5555/games')
+    setPopUpOpen(true);
+  }, []);
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:3000/games')
       .then((res) => res.json())
       .then((data) => setGames(data))
   },[])
@@ -23,14 +30,14 @@ function App() {
 
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5555/consoles')
+    fetch('http://127.0.0.1:3000/consoles')
       .then((res) => res.json())
       .then((data) => setConsoles(data))
   },[])
   //console.log(data)
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5555/genres')
+    fetch('http://127.0.0.1:3000/genres')
       .then((res) => res.json())
       .then((data) => setGenres(data))
     },[])
@@ -55,14 +62,14 @@ function App() {
         <NewGameForm setGames={setGames} consoles={consoles}/>
       </Route>
     </Switch>
-    </>
- 
-  
-  
-  
-  
+    <div className="App">
+      {isPopUpOpen && <PopUp onClose={closePopUp} />}
+      <div className="landing-page">
+        {/* Your landing page content goes here */}
+      </div>
+    </div>
+  </>
   );
-
 }
 
 
