@@ -1,12 +1,16 @@
 import React, {useState} from "react";
 
-import { useState } from "react";
-import { Form } from "semantic-ui-react";
 
-function NewGameForm({setIsData}) {
+// import { Form } from "semantic-ui-react";
+
+function NewGameForm({setGames, consoles}) {
   const [title, setTitle] = useState("");
+  const [releaseYr, setReleaseYr] = useState("");
   const [genre, setGenre] = useState("");
   const [platform, setPlatform] = useState("");
+  const [img, setImg] = useState("");
+  const [consoleIds, setConsoleIds] = useState("");
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,8 +22,11 @@ function NewGameForm({setIsData}) {
       },
       body: JSON.stringify({
         title,
-        genre,
+        "genre_id": parseInt(genre),
+        "release_yr": parseInt(releaseYr),
         platform,
+        img,
+        "console_ids": consoleIds
       }),
     };
 
@@ -33,35 +40,61 @@ function NewGameForm({setIsData}) {
     setTitle("");
     setGenre("");
     setPlatform("");
+    setReleaseYr("")
   };
+
+    function handleSelectConsole(e){
+        setConsoleIds(consoleIds => [...consoleIds,e.target.value])
+    }
+
+    const consoleSelector = () => {
+        return consoles.map(console => (
+            <>
+            <input
+                onClick={handleSelectConsole} 
+                type = "checkbox"
+                name = {console.name}
+                value = {console.id}
+                id = {console.name}
+            />
+            <label htmlFor={console.name}>{console.name}</label>
+            </>
+        ))
+    }
+
+
 
   return (
     <div>
       <h3>Add a Game!</h3>
-      <Form onSubmit={handleSubmit}>
-        <Form.Input
-          fluid
+      <form onSubmit={handleSubmit}>
+        <input
           label="Title"
           placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <Form.Input
-          fluid
+        <input
           label="Genre"
           placeholder="Genre"
           value={genre}
           onChange={(e) => setGenre(e.target.value)}
         />
-        <Form.Input
-          fluid
-          label="Platform"
-          placeholder="Platform"
-          value={platform}
-          onChange={(e) => setPlatform(e.target.value)}
+        {consoleSelector()}
+        <input
+          label="release_yr"
+          placeholder="release_yr"
+          value={releaseYr}
+          onChange={(e) => setReleaseYr(e.target.value)}
         />
-        <Form.Button type="submit">Submit</Form.Button>
-      </Form>
+         <input
+          label="Image"
+          placeholder="Image"
+          value={img}
+          onChange={(e) => setImg(e.target.value)}
+        />
+        <button type="submit">Submit</button>
+      </form>
     </div>
   );
 }

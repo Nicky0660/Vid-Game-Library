@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Games from "./Games"
+
 import NavBar from "./NavBar"
 import { Switch, Route } from "react-router-dom";
-import PopUp from "./Popup";
-import Genres from "./Genres";
 
-// const baseURL = ('http://127.0.0.1:3000')
+
+
+// const baseURL = ('http://127.0.0.1:5555')
 
 function App() {
   const [games, setGames] = useState([])
@@ -49,13 +49,17 @@ function App() {
     </header>
     <NavBar/>
     <Switch>
-      <Route exact path="/">
+      <Route exact path="/games">
         <Games games={games}/>
       </Route>
       <Route exact path="/genres">
         <Genres genres={genres}/>
       </Route>
-      <Route exact path="/games">
+      <Route exact path="/consoles">
+        <Consoles consoles={consoles}/>
+      </Route>
+      <Route exact path="/newGame">
+        <NewGameForm setGames={setGames} consoles={consoles}/>
       </Route>
     </Switch>
     <div className="App">
