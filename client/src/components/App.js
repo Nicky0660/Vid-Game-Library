@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-
+import Games from "./Games"
 import NavBar from "./NavBar"
 import { Switch, Route } from "react-router-dom";
-import Home from "./Home"
 import PopUp from "./Popup";
+import Genres from "./Genres";
 
 // const baseURL = ('http://127.0.0.1:3000')
 

@@ -1,8 +1,7 @@
 import React from "react";
-import Games from "games"
 
-function GameList({games}){
-    const mappedArrray = games.map(game =>(
+function Games({games}){
+    const mappedArrray = games?.map(game =>(
        <Games 
        key={game.id}
        name={game.name}
@@ -12,3 +11,4 @@ function GameList({games}){
         
     ))
 }
+export default Games;
