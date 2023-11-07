@@ -8,6 +8,8 @@ import GameList from "./GameList";
 //import Home from "./Home"
 //Component imports 1-7
 
+// const baseURL = ('http://127.0.0.1:5555')
+
 function App() {
   const [games, setGames] = useState([])
   
@@ -17,6 +19,7 @@ function App() {
       .then((data) => setGames(data));
   },[])
   console.log(games)
+
 
   return(
     <div>
@@ -55,6 +58,11 @@ function App() {
   // </>
   // )
 };
+
+
+  return <h1>Gaming Library</h1>;
+}
+
 
 
 export default App;
