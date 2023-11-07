@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-
-import NavBar from "./NavBar"
+import Games from './Games';
+import NavBar from "./NavBar";
 import { Switch, Route } from "react-router-dom";
-
+import Genres from "./Genres";
+import Consoles from "./Consoles";
+import NewGameForm from "./NewGameForm";
 
 
 // const baseURL = ('http://127.0.0.1:5555')
@@ -40,14 +42,17 @@ function App() {
     </header>
     <NavBar/>
     <Switch>
-      <Route exact path="/">
+      <Route exact path="/games">
         <Games games={games}/>
       </Route>
       <Route exact path="/genres">
         <Genres genres={genres}/>
       </Route>
-      <Route exact="/consoles">
+      <Route exact path="/consoles">
         <Consoles consoles={consoles}/>
+      </Route>
+      <Route exact path="/newGame">
+        <NewGameForm setGames={setGames} consoles={consoles}/>
       </Route>
     </Switch>
     </>

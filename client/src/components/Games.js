@@ -1,14 +1,21 @@
 import React from "react";
-import Games from "games"
+import GameDetail from"./GameDetail";
 
-function GameList({games}){
-    const mappedArrray = games.map(game =>(
-       <Games 
+function Games({games}){
+    console.log(games)
+    const mappedArray = games.map(game =>(
+       <GameDetail 
        key={game.id}
-       name={game.name}
-       releaseYr={game.releaseYr}
-       genre={game.genre}
+       title={game.title}
+       releaseYr={game['release_yr']}
+       genre={game.genre.name}
+       img={game.img}
+
        />
         
     ))
+    return (
+       <>{mappedArray} </>
+    )
 }
+export default Games

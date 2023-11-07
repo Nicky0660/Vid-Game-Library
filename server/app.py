@@ -27,6 +27,7 @@ def games():
         response = make_response(games_dict, 200)
     elif request.method == 'POST':
         form_data = request.get_json()
+        print(form_data)
         try:
             new_game = Games(
                 title = form_data['title'],
@@ -36,7 +37,7 @@ def games():
                 )
             db.session.add(new_game)
             db.session.commit()
-
+            print(new_game)
             console_ids = form_data['console_ids']
 
             for id in console_ids:
