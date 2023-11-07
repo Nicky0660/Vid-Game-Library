@@ -2,20 +2,20 @@ import React, { useEffect, useState } from "react";
 
 import NavBar from "./NavBar"
 import { Switch, Route } from "react-router-dom";
-import Home from "./Home"
+
 
 
 // const baseURL = ('http://127.0.0.1:5555')
 
 function App() {
-  const [gamesArray, setGamesArray] = useState([])
+  const [games, setGames] = useState([])
   const[consoles, setConsoles]= useState([])
   const[genres, setGenres]= useState([])
 
   useEffect(() => {
     fetch('http://127.0.0.1:5555/games')
       .then((res) => res.json())
-      .then((data) => setGamesArray(data))
+      .then((data) => setGames(data))
   },[])
   //console.log(data)
 
@@ -41,10 +41,13 @@ function App() {
     <NavBar/>
     <Switch>
       <Route exact path="/">
-        <Home gamesArray={gamesArray}/>
+        <Games games={games}/>
       </Route>
-      <Route exact path="/games">
-        
+      <Route exact path="/genres">
+        <Genres genres={genres}/>
+      </Route>
+      <Route exact="/consoles">
+        <Consoles consoles={consoles}/>
       </Route>
     </Switch>
     </>
