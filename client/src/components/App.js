@@ -1,66 +1,60 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
-import NewGameForm from "./NewGameForm";
-import SearchGame from "./SearchGame";
-import GameDetail from "./GameDetail";
-import GameList from "./GameList";
-//import Header from "./Header";
-//import Home from "./Home"
-//Component imports 1-7
+
+import NavBar from "./NavBar"
+import { Switch, Route } from "react-router-dom";
+import Home from "./Home"
+
 
 // const baseURL = ('http://127.0.0.1:5555')
 
 function App() {
-  const [games, setGames] = useState([])
-  
+  const [gamesArray, setGamesArray] = useState([])
+  const[consoles, setConsoles]= useState([])
+  const[genres, setGenres]= useState([])
+
   useEffect(() => {
     fetch('http://127.0.0.1:5555/games')
       .then((res) => res.json())
-      .then((data) => setGames(data));
+      .then((data) => setGamesArray(data))
   },[])
-  console.log(games)
+  //console.log(data)
 
 
-  return(
-    <div>
-      <header><h1>Random bullshit, GO!!</h1> </header>
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <h1>Gaming Library</h1>
-            <GameList games={games} />
-          </Route>
-          <Route path="/add-game">
-            <NewGameForm/>
-          </Route>
-          <Route path="/game-detail/:id">
-            <GameDetail games={games} />
-          </Route>
-          <Route path="/search-game">
-            <SearchGame/>
-          </Route>
-        </Switch>
-      </Router>
-    </div>
-  )
-  // return (
-  // <>
-  //   <h1>Gaming Library</h1>
-  //   <></>
-  //   <h2>Make your selection</h2>
-  //   <Navbar>
-  //     <Switch>
-  //       <Route exact path = '/'>
+  useEffect(() => {
+    fetch('http://127.0.0.1:5555/consoles')
+      .then((res) => res.json())
+      .then((data) => setConsoles(data))
+  },[])
+  //console.log(data)
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:5555/genres')
+      .then((res) => res.json())
+      .then((data) => setGenres(data))
+    },[])
+  
+  return (
+    <>
+    <header>
+      <h1>Game Library</h1>
+    </header>
+    <NavBar/>
+    <Switch>
+      <Route exact path="/">
+        <Home gamesArray={gamesArray}/>
+      </Route>
+      <Route exact path="/games">
         
-  //       </Route>
-  //     </Switch>
-  //   </Navbar>
-  // </>
-  // )
-};
+      </Route>
+    </Switch>
+    </>
+ 
+  
+  
+  
+  
+  );
 
-
-  return <h1>Gaming Library</h1>;
 }
 
 
