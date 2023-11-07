@@ -23,7 +23,7 @@ def index():
 def games():
     if request.method == 'GET':
         games = Games.query.all()
-        games_dict = [game.to_dict()for game in games]
+        games_dict = [game.to_dict(rules=('-genre.games',))for game in games]
         response = make_response(games_dict, 200)
     elif request.method == 'POST':
         form_data = request.get_json()
@@ -31,15 +31,19 @@ def games():
             new_game = Games(
                 title = form_data['title'],
                 release_yr = form_data['release_yr'],
-                genre_id = form_data['genre-id'],
+                genre_id = form_data['genre_id'],
                 img = form_data['img']
                 )
             db.session.add(new_game)
             db.session.commit()
 
-            # for id in console_ids:
-            #     ConsoleGame(game_id = new game id, console_id = id)
-            # react needed first, this will appear later
+            console_ids = form_data['console_ids']
+
+            for id in console_ids:
+                new_console_game = ConsoleGames(game_id = new_game.id, console_id = id)
+
+                db.session.add(new_console_game)
+                db.session.commit()
             
 
             response = make_response(new_game.to_dict(), 201)
@@ -57,7 +61,7 @@ def games_by_id(id):
     game = Games.query.filter(Games.id == id).first()
     if game:
         if request.method == 'GET':
-            response = make_response(games.to_dict(), 200)
+            response = make_response(game.to_dict(rules=('-genre.games',)), 200)
         elif request.method == 'DELETE':
             db.session.delete(game)
             db.session.commit()
@@ -81,7 +85,7 @@ def games_by_id(id):
 def consoles():
     if request.method == 'GET':
         consoles = Consoles.query.all()
-        consoles_dict = [console.to_dict()for console in consoles]
+        consoles_dict = [console.to_dict(rules=('-console_games', ))for console in consoles]
         response = make_response(consoles_dict, 200)
     else:
         response = make_response('Error console not found!', 404)
@@ -91,10 +95,10 @@ def consoles():
 def genres():
     if request.method == 'GET':
         genres = Genres.query.all()
-        genres_dict = [genre.to_dict()for genre in genres]
+        genres_dict = [genre.to_dict(rules=('-games',))for genre in genres]
         response = make_response(genres_dict, 200)
     elif request.method == 'POST':
-        form_data = request.get_json
+        form_data = request.get_json()
         new_genre = Genres(name = form_data['name']) 
         db.session.add(new_genre)
         db.session.commit()

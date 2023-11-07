@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+
 import NavBar from "./NavBar"
 import { Switch, Route } from "react-router-dom";
 import Home from "./Home"
+
 
 // const baseURL = ('http://127.0.0.1:5555')
 
@@ -16,6 +18,7 @@ function App() {
       .then((data) => setGamesArray(data))
   },[])
   //console.log(data)
+
 
   useEffect(() => {
     fetch('http://127.0.0.1:5555/consoles')
@@ -51,7 +54,9 @@ function App() {
   
   
   );
+
 }
+
 
 
 export default App;
