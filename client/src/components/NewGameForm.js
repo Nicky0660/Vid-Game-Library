@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, Fragment} from "react";
 
 
 // import { Form } from "semantic-ui-react";
@@ -49,7 +49,7 @@ function NewGameForm({setGames, consoles}) {
 
     const consoleSelector = () => {
         return consoles.map(console => (
-            <>
+            <Fragment key = {console.id}>
             <input
                 onClick={handleSelectConsole} 
                 type = "checkbox"
@@ -58,7 +58,7 @@ function NewGameForm({setGames, consoles}) {
                 id = {console.name}
             />
             <label htmlFor={console.name}>{console.name}</label>
-            </>
+            </Fragment>
         ))
     }
 

@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
-
 import NavBar from "./NavBar"
 import { Switch, Route } from "react-router-dom";
+import Games from './Games'
+import Genres from './Genres'
+import Consoles from './Consoles'
+import NewGameForm from './NewGameForm'
+import PopUp from './PopUp'
 
 
 
-// const baseURL = ('http://127.0.0.1:5555')
+const baseURL = ('http://127.0.0.1:5555')
 
 function App() {
   const [games, setGames] = useState([])
@@ -22,7 +26,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:3000/games')
+    fetch(`${baseURL}/games`)
       .then((res) => res.json())
       .then((data) => setGames(data))
   },[])
@@ -30,14 +34,14 @@ function App() {
 
 
   useEffect(() => {
-    fetch('http://127.0.0.1:3000/consoles')
+    fetch(`${baseURL}/consoles`)
       .then((res) => res.json())
       .then((data) => setConsoles(data))
   },[])
   //console.log(data)
 
   useEffect(() => {
-    fetch('http://127.0.0.1:3000/genres')
+    fetch(`${baseURL}/genres`)
       .then((res) => res.json())
       .then((data) => setGenres(data))
     },[])
