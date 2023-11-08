@@ -144,8 +144,8 @@ console.log(game)
     <p className="game-release_yr">{releaseYr}</p>
     <div className="console-img-line">{consoleImgs}</div>
     
-    <button onClick = { () => setShowEditForm(!showEditForm)}> Edit Game </button>
-    <button onClick={() => handleDelete(game.id)}> DELETE </button>
+    <button className = 'edit_game' onClick = { () => setShowEditForm(!showEditForm)}> EDIT GAME </button>
+    <button className = 'delete_game' onClick={() => handleDelete(game.id)}> DELETE </button>
     </div>)
 }
 export default GameDetail

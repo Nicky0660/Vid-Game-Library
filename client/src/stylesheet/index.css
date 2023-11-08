@@ -85,6 +85,9 @@
     color: black;
   }
 
+  .edit_game {
+    margin-right: 3%;
+  }
   /* Styling the main content area / */
   .body {
     padding: 20px;
@@ -97,6 +100,8 @@
     gap: 20px;
     overflow: none;
     max-height: 90vh;
+    padding: 10px;
+    text-align: center;
   }
   /* /this makes the columns/ */
   .game-card {
@@ -110,6 +115,9 @@
     margin: auto;
     padding: 15px 10px;
     min-height: 625px;
+    font-weight: bold;
+    font-style: italic;
+    color: #000000;  
   }
   .game-img {
     height: 200px ;
@@ -117,27 +125,12 @@
   
   }
   /* / Styling individual artwork details / */
-  .card-container {
-    /* background-image: url(../Images/Background.jpg);  */
-    padding: 10px;
-    text-align: center;
-  }
-  
   .game-card:hover {
     transform:scale(1.2);
     color:white;
-    text-shadow:1px 1px black;
-    box-shadow:0 0 15px black;
+    text-shadow:1px 1px rgb(0, 110, 255);
+    box-shadow:0 0 15px white;
   } 
-  
-  .game-card {
-    font-weight: bold;
-  }
-  
-  .game-card {
-    font-style: italic;
-    color: #000000;  
-  }
 
   .console-img-line{
     display:flex;
