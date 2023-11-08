@@ -9,6 +9,8 @@ function Consoles({consoles}){
             img={console.img}
         />
     ))
-    return (<></>)
+    return (
+    <div className="console-container">{mappedConsoles}</div>
+    )
 }
 export default Consoles

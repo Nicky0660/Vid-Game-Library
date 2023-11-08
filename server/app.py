@@ -37,7 +37,9 @@ def games():
                 )
             db.session.add(new_game)
             db.session.commit()
-            print(new_game)
+
+            # print(new_game)
+
             console_ids = form_data['console_ids']
 
             for id in console_ids:
@@ -74,6 +76,23 @@ def games_by_id(id):
         elif request.method == 'PATCH':
             form_data = request.get_json()
             try:
+                console_ids = form_data['console_ids']
+
+                for id in console_ids:
+                    console_game = ConsoleGames.query.filter(ConsoleGames.game_id == game.id, ConsoleGames.console_id == id).first()
+
+                    if console_game == None:
+                        
+                        new_console_game = ConsoleGames(game_id = game.id, console_id = id)
+
+                        
+                        db.session.add(new_console_game)
+                        db.session.commit()
+
+
+
+
+
                 for attr in form_data:
                     setattr(game, attr, form_data.get(attr))
                 db.session.commit()

@@ -1,13 +1,13 @@
 import React, { useState, Fragment }from "react";
 
-function GameDetail({id,title, releaseYr, genre, img, game, consoles, setGames, games,mappedArray}){
+function GameDetail({id,title, releaseYr, genre, img, game, consoles, setGames, games}){
 
     const [showEditForm, setShowEditForm] = useState(false)
     const [editTitle, setEditTitle] = useState(title);
     const [editReleaseYr, setEditReleaseYr] = useState(releaseYr);
     const [editGenre, setEditGenre] = useState(genre);
     const [editImg, setEditImg] = useState(img);
-    const [isDelete , setIsDelete] = useState(false)
+    
     const currentConsoleIds =  game['console_games'].map(g=>g['console_id'])
     
     const [consoleIds, setConsoleIds] = useState(currentConsoleIds);
@@ -52,13 +52,13 @@ function GameDetail({id,title, releaseYr, genre, img, game, consoles, setGames, 
                     }
                 })
                 setGames(updatedGames)
+                setShowEditForm(false)
+
+                const currentConsoleIds =  data['console_games'].map(g=>g['console_id'])
+                setConsoleIds(currentConsoleIds)
+                
             })
 
-
-
-
-
-        setShowEditForm(false)
     }
 
     

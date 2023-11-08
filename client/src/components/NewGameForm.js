@@ -1,4 +1,5 @@
 import React, {useState, Fragment} from "react";
+import {useHistory} from "react-router-dom"
 
 
 // import { Form } from "semantic-ui-react";
@@ -10,6 +11,7 @@ function NewGameForm({setGames, consoles}) {
   const [img, setImg] = useState("");
   const [consoleIds, setConsoleIds] = useState("");
 
+  const history = useHistory()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,8 +33,8 @@ function NewGameForm({setGames, consoles}) {
     fetch("http://127.0.0.1:5555/games", gameForm)
       .then((res) => res.json())
       .then((data) => {
-    //    setIsData( => [ , ])
-       console.log(data)
+        setGames( games => [ ...games , data ])
+        history.push('/games')
       })
 
     setTitle("");
@@ -74,20 +76,20 @@ function NewGameForm({setGames, consoles}) {
         />
         <input
           label="Genre"
-          placeholder="Genre"
+          placeholder="Genre ID#"
           value={genre}
           onChange={(e) => setGenre(e.target.value)}
         />
         {consoleSelector()}
         <input
           label="release_yr"
-          placeholder="release_yr"
+          placeholder="Enter release year"
           value={releaseYr}
           onChange={(e) => setReleaseYr(e.target.value)}
         />
          <input
           label="Image"
-          placeholder="Image"
+          placeholder="Image URL"
           value={img}
           onChange={(e) => setImg(e.target.value)}
         />

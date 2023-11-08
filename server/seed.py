@@ -31,7 +31,7 @@ if __name__ == '__main__':
             Games(title='GoldenEye 007', release_yr=1997, genre_id=3, img = 'https://images.nintendolife.com/0becf36f5e461/goldeneye-007-cover.cover_large.jpg'),
             Games(title='Super Smash Bros', release_yr=1999, genre_id=4, img ='https://upload.wikimedia.org/wikipedia/en/4/42/Supersmashbox.jpg'),
             Games(title='Legend of Zelda', release_yr=1986, genre_id=7, img ='https://upload.wikimedia.org/wikipedia/en/4/41/Legend_of_zelda_cover_%28with_cartridge%29_gold.png'),
-            Games(title='Super Mario 64', release_yr=1996, genre_id=7, img= 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FM%2FMV5BNjQzZmQzNWMtZTVmOS00NjU4LTlmNjktOTM2MDQwMjgxMmY0XkEyXkFqcGdeQXVyMTA3NjAwMDc4._V1_.jpg&tbnid=XyJ91EOs8vKSqM&vet=12ahUKEwi0y93p4LSCAxUtOFkFHbapDQQQMygCegUIARCWAQ..i&imgrefurl=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt0204657%2F&docid=T45R6tyCAtrBPM&w=716&h=1000&q=super%20mario%2064%20poster%20image%20for%20release%20date&ved=2ahUKEwi0y93p4LSCAxUtOFkFHbapDQQQMygCegUIARCWAQ'),
+            Games(title='Super Mario 64', release_yr=1996, genre_id=7, img= 'https://m.media-amazon.com/images/M/MV5BNjQzZmQzNWMtZTVmOS00NjU4LTlmNjktOTM2MDQwMjgxMmY0XkEyXkFqcGdeQXVyMTA3NjAwMDc4._V1_.jpg'),
             Games(title='Splitgate', release_yr=2019, genre_id=3, img='https://howlongtobeat.com/games/66142_Splitgate_Arena_Warfare.jpg'),
             Games(title='Tekken', release_yr=1994, genre_id=4, img ='https://m.media-amazon.com/images/M/MV5BMzJiMDYwMTAtZmJiZS00NGZiLTkzYzgtZGMxM2Q4YjJiNTAzXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_.jpg'),
             Games(title='SSX Tricky', release_yr=2001, genre_id=1, img = 'https://media.retroachievements.org/Images/056697.png'),
@@ -103,8 +103,8 @@ if __name__ == '__main__':
         # Create and seed the Consoles
         print('Selecting Consoles ...')
         consoles = [
-            Consoles(name='Xbox', img = ('https://hyperpix.net/wp-content/uploads/2019/08/xbox-logo-font-download-856x484.jpg')),
-            Consoles(name='Nintendo', img = 'https://hyperpix.net/wp-content/uploads/2019/08/nintendo-logo-font-download-856x484.jpg'),
+            Consoles(name='Xbox', img = ('https://assetsio.reedpopcdn.com/-1620825867462.jpg?width=1200&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp')),
+            Consoles(name='Nintendo', img = 'https://bleedingcool.com/wp-content/uploads/2019/07/nintendo-logo-large-red-white-1200x900.jpg'),
             Consoles(name='Playstation', img = 'https://i2-prod.dailystar.co.uk/incoming/article15542870.ece/ALTERNATES/s1200b/923899'),
             Consoles(name='PC', img = 'https://totalmayhemgames.com/wp-content/uploads/2020/09/PC-Game_-2020-Black-300x300.png'),
             Consoles(name= 'All', img = 'https://yt3.googleusercontent.com/ytc/APkrFKaCabvNmIWM1VHuLHc8_aQru-yNcc6JM3oWQUWQNA=s900-c-k-c0x00ffffff-no-rj')
