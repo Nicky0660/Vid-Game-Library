@@ -6,6 +6,7 @@ import Genres from './Genres'
 import Consoles from './Consoles'
 import NewGameForm from './NewGameForm'
 import PopUp from './PopUp'
+import "../stylesheet/index.css";
 
 
 
