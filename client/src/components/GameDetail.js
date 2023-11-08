@@ -1,6 +1,6 @@
 import React, { useState, Fragment }from "react";
 
-function GameDetail({id,title, releaseYr, genre, img, game, consoles, setGames, games}){
+function GameDetail({title, releaseYr, genre, img, game, consoles, setGames, games}){
 
     const [showEditForm, setShowEditForm] = useState(false)
     const [editTitle, setEditTitle] = useState(title);
@@ -11,7 +11,7 @@ function GameDetail({id,title, releaseYr, genre, img, game, consoles, setGames, 
     const currentConsoleIds =  game['console_games'].map(g=>g['console_id'])
     
     const [consoleIds, setConsoleIds] = useState(currentConsoleIds);
-
+console.log(game)
     function handleSelectConsole(e){
         if (consoleIds.includes(e.target.value)){
             const updatedIds = consoleIds.filter((id) => id !== e.target.value) 
@@ -133,11 +133,17 @@ function GameDetail({id,title, releaseYr, genre, img, game, consoles, setGames, 
         )
     }
 
+    const consoleImgs = game.console_games.map(console => (
+        <img className="console-imgs" src ={console.console.img}/>
+    ))
+
     return( <div className = 'game-card'>
     <h3 className="game-title">{title}</h3>
     <img className="game-img" src={img} alt={title}/>
     <p className="game-genre">{genre}</p>
     <p className="game-release_yr">{releaseYr}</p>
+    <div className="console-img-line">{consoleImgs}</div>
+    
     <button onClick = { () => setShowEditForm(!showEditForm)}> Edit Game </button>
     <button onClick={() => handleDelete(game.id)}> DELETE </button>
     </div>)

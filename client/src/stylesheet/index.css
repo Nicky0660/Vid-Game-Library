@@ -38,8 +38,8 @@
     padding: 20px;
     box-shadow: 6px 6px 6px 6px rgb(255, 0, 0);
     z-index: 1000;
-    width: 500px;
-    height: 500px;
+    width: 1200px;
+    height: 850px;
   }
   
   .popup-content {
@@ -137,4 +137,13 @@
   .game-card {
     font-style: italic;
     color: #000000;  
+  }
+
+  .console-img-line{
+    display:flex;
+    justify-content: space-evenly;
+  }
+  .console-imgs{
+    width: 50px;
+    height: 50px;
   }
