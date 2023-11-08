@@ -1,7 +1,7 @@
 import React from "react";
 import GameDetail from"./GameDetail";
 
-function Games({games}){
+function Games({games, consoles}){
    //  console.log(games)
     const mappedArray = games.map(game =>(
        <GameDetail 
@@ -10,7 +10,8 @@ function Games({games}){
        releaseYr={game['release_yr']}
        genre={game.genre.name}
        img={game.img}
-
+       game = {game}
+       consoles = {consoles}
        />
         
     ))

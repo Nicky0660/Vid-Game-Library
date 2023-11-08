@@ -7,7 +7,6 @@ function NewGameForm({setGames, consoles}) {
   const [title, setTitle] = useState("");
   const [releaseYr, setReleaseYr] = useState("");
   const [genre, setGenre] = useState("");
-  const [platform, setPlatform] = useState("");
   const [img, setImg] = useState("");
   const [consoleIds, setConsoleIds] = useState("");
 
@@ -24,7 +23,6 @@ function NewGameForm({setGames, consoles}) {
         title,
         "genre_id": parseInt(genre),
         "release_yr": parseInt(releaseYr),
-        platform,
         img,
         "console_ids": consoleIds
       }),
@@ -39,7 +37,7 @@ function NewGameForm({setGames, consoles}) {
 
     setTitle("");
     setGenre("");
-    setPlatform("");
+    setConsoleIds([]);
     setReleaseYr("")
   };
 
