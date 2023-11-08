@@ -1,12 +1,13 @@
 import React, { useState, Fragment }from "react";
 
-function GameDetail({title, releaseYr, genre, img, game, consoles, setGames, games}){
+function GameDetail({id,title, releaseYr, genre, img, game, consoles, setGames, games,mappedArray}){
 
     const [showEditForm, setShowEditForm] = useState(false)
     const [editTitle, setEditTitle] = useState(title);
     const [editReleaseYr, setEditReleaseYr] = useState(releaseYr);
     const [editGenre, setEditGenre] = useState(genre);
     const [editImg, setEditImg] = useState(img);
+    const [isDelete , setIsDelete] = useState(false)
     const currentConsoleIds =  game['console_games'].map(g=>g['console_id'])
     
     const [consoleIds, setConsoleIds] = useState(currentConsoleIds);
@@ -21,6 +22,7 @@ function GameDetail({title, releaseYr, genre, img, game, consoles, setGames, gam
 
 
     }
+   
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -39,7 +41,7 @@ function GameDetail({title, releaseYr, genre, img, game, consoles, setGames, gam
             }),
         };
 
-        fetch(`http://127.0.0.1:5555/games/${game.id}`, reviseGame)
+        fetch(`/games/${game.id}`, reviseGame)
             .then(res => res.json())
             .then(data => {
                 const updatedGames = games.map(game => {
@@ -55,10 +57,30 @@ function GameDetail({title, releaseYr, genre, img, game, consoles, setGames, gam
 
 
 
+
         setShowEditForm(false)
     }
 
-    const consoleSelector = () => {
+    
+
+    
+    function handleDelete(id){
+        const filteredGames = games.filter(game =>{
+            console.log(game)
+            console.log(id)
+            return (game.id != id)
+        })
+        setGames(filteredGames)
+        console.log(filteredGames)
+        fetch(`/games/${game.id}`,{
+                method:"DELETE"
+            })
+        
+        console.log("here")
+    }
+    
+    
+        const consoleSelector = () => {
         return consoles.map(console => (
             <Fragment key = {console.id}>
             <input
@@ -117,7 +139,7 @@ function GameDetail({title, releaseYr, genre, img, game, consoles, setGames, gam
     <p className="game-genre">{genre}</p>
     <p className="game-release_yr">{releaseYr}</p>
     <button onClick = { () => setShowEditForm(!showEditForm)}> Edit Game </button>
-
+    <button onClick={() => handleDelete(game.id)}> DELETE </button>
     </div>)
 }
 export default GameDetail

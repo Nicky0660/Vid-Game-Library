@@ -10,7 +10,7 @@ import "../stylesheet/index.css";
 
 
 
-const baseURL = ('http://127.0.0.1:5555')
+
 
 function App() {
   const [games, setGames] = useState([])
@@ -27,7 +27,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch(`${baseURL}/games`)
+    fetch(`/games`)
       .then((res) => res.json())
       .then((data) => setGames(data))
   },[])
@@ -35,14 +35,14 @@ function App() {
 
 
   useEffect(() => {
-    fetch(`${baseURL}/consoles`)
+    fetch(`/consoles`)
       .then((res) => res.json())
       .then((data) => setConsoles(data))
   },[])
   //console.log(data)
 
   useEffect(() => {
-    fetch(`${baseURL}/genres`)
+    fetch(`/genres`)
       .then((res) => res.json())
       .then((data) => setGenres(data))
     },[])

@@ -5,11 +5,11 @@ function PopUp({ onClose }) {
   return (
     <div className="popup">
       <div className="popup-content">
-        <h2>What Our Website Can Do</h2>
+        <h2>Here is Game Library</h2>
         <ul>
-          <li>Im about to insert a bunch of random information here just so we can see the scaling if we did this in list format</li>
-          <li>Im about to insert a bunch of random information here just so we can see the scaling if we did this in list format</li>
-          <li>Im about to insert a bunch of random information here just so we can see the scaling if we did this in list format</li>
+          <li>Here you can view the library as a whole from Game List</li>
+          <li>Enter New Game using an integer for Genre id correspondent to the list found in Genre List</li>
+          <li>From Console List highlight each console to see which games are available for that Console!</li>
         </ul>
         <button onClick={onClose}>Close</button>
       </div>

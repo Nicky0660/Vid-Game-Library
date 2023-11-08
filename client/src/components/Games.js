@@ -17,6 +17,8 @@ function Games({games, consoles, setGames}){
        />
         
     ))
+
+    
     return (
        <div className="card-container">{mappedArray} </div>
     )
