@@ -103,12 +103,13 @@ if __name__ == '__main__':
         # Create and seed the Consoles
         print('Selecting Consoles ...')
         consoles = [
-            Consoles(name='Xbox'),
-            Consoles(name='Nintendo'),
-            Consoles(name='Playstation'),
-            Consoles(name='PC'),
-            Consoles(name= 'All')
+            Consoles(name='Xbox', img = ('https://hyperpix.net/wp-content/uploads/2019/08/xbox-logo-font-download-856x484.jpg')),
+            Consoles(name='Nintendo', img = 'https://hyperpix.net/wp-content/uploads/2019/08/nintendo-logo-font-download-856x484.jpg'),
+            Consoles(name='Playstation', img = 'https://i2-prod.dailystar.co.uk/incoming/article15542870.ece/ALTERNATES/s1200b/923899'),
+            Consoles(name='PC', img = 'https://totalmayhemgames.com/wp-content/uploads/2020/09/PC-Game_-2020-Black-300x300.png'),
+            Consoles(name= 'All', img = 'https://yt3.googleusercontent.com/ytc/APkrFKaCabvNmIWM1VHuLHc8_aQru-yNcc6JM3oWQUWQNA=s900-c-k-c0x00ffffff-no-rj')
         ]
+        
 
         db.session.add_all(consoles)
         db.session.commit()

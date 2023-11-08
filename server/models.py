@@ -22,8 +22,8 @@ class Games(db.Model, SerializerMixin):
     genre_id = db.Column(db.Integer, db.ForeignKey('genres.id'))
     serialize_rules = ('-console_games.game', '-genres.game')
 
-    genre = db.relationship('Genres', back_populates='games')
-    console_games = db.relationship('ConsoleGames', back_populates='game', cascade = 'all, delete-orphan')
+    genre = db.relationship('Genres', back_populates='games', lazy = 'subquery')
+    console_games = db.relationship('ConsoleGames', back_populates='game', cascade='all,delete-orphan')
 
     @validates('title')
     def validates_title(self, key, title):
@@ -58,13 +58,14 @@ class ConsoleGames(db.Model, SerializerMixin):
     console_id = db.Column(db.Integer, db.ForeignKey('consoles.id'))
 
     game = db.relationship('Games', back_populates='console_games')
-    console = db.relationship('Consoles', back_populates='console_games')
+    console = db.relationship('Consoles', back_populates='console_games', lazy = 'subquery')
 
 
 class Consoles(db.Model, SerializerMixin):
     __tablename__='consoles'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
+    img = db.Column(db.String)
     serialize_rules = ('-console_games.console', )
 
     console_games = db.relationship('ConsoleGames', back_populates='console', cascade = 'all, delete-orphan')

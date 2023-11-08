@@ -8,7 +8,7 @@ from flask_restful import Resource
 from flask_migrate import Migrate
 
 # Local imports
-from config import app, db, api
+from config import app, api
 # Add your model imports
 from models import db, Consoles, Games, ConsoleGames, Genres
 
@@ -60,13 +60,17 @@ def games():
 @app.route('/games/<int:id>', methods=['GET', 'DELETE', 'PATCH'])
 def games_by_id(id):
     game = Games.query.filter(Games.id == id).first()
+    print(game)
     if game:
         if request.method == 'GET':
             response = make_response(game.to_dict(rules=('-genre.games',)), 200)
         elif request.method == 'DELETE':
+            print(game)
             db.session.delete(game)
             db.session.commit()
             response = make_response({}, 204)
+            print(response)
+            return response
         elif request.method == 'PATCH':
             form_data = request.get_json()
             try:
