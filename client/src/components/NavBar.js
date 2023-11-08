@@ -7,11 +7,11 @@ function NavBar(){
     return(
         <div className = 'navBar'>
            <NavLink  to="/games" > Game List </NavLink>
-           <br></br>
+           
            <NavLink  to="/genres" >  Genre List  </NavLink>
-           <br></br>
+           
            <NavLink  to="/consoles" > Console List  </NavLink>
-           <br></br>
+           
            <NavLink to="/newGame"> Enter New Game </NavLink>
         </div>
     )
