@@ -1,7 +1,7 @@
 import React from "react";
 import GameDetail from"./GameDetail";
 
-function Games({games, consoles}){
+function Games({games, consoles, setGames}){
    //  console.log(games)
     const mappedArray = games.map(game =>(
        <GameDetail 
@@ -12,11 +12,13 @@ function Games({games, consoles}){
        img={game.img}
        game = {game}
        consoles = {consoles}
+       setGames = {setGames}
+       games = {games}
        />
         
     ))
     return (
-       <>{mappedArray} </>
+       <div className="card-container">{mappedArray} </div>
     )
 }
 export default Games

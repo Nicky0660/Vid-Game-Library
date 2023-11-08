@@ -54,7 +54,7 @@ function App() {
     <NavBar/>
     <Switch>
       <Route exact path="/games">
-        <Games games={games} consoles = {consoles}/>
+        <Games games={games} consoles = {consoles} setGames = {setGames}/>
       </Route>
       <Route exact path="/genres">
         <Genres genres={genres}/>

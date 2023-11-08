@@ -1,24 +1,6 @@
 import React, { useState, Fragment }from "react";
 
-
-
-// const reviseGame = {
-//     method: "PATCH",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify({
-//       title,
-//       "genre_id": parseInt(genre),
-//       "release_yr": parseInt(releaseYr),
-//       img,
-//       "console_ids": consoleIds
-//     }),
-//   };
-
-
-
-function GameDetail({title, releaseYr, genre, img, game, consoles}){
+function GameDetail({title, releaseYr, genre, img, game, consoles, setGames, games}){
 
     const [showEditForm, setShowEditForm] = useState(false)
     const [editTitle, setEditTitle] = useState(title);
@@ -30,23 +12,62 @@ function GameDetail({title, releaseYr, genre, img, game, consoles}){
     const [consoleIds, setConsoleIds] = useState(currentConsoleIds);
 
     function handleSelectConsole(e){
-        setConsoleIds(consoleIds => [...consoleIds,e.target.value])
+        if (consoleIds.includes(e.target.value)){
+            const updatedIds = consoleIds.filter((id) => id !== e.target.value) 
+            setConsoleIds(updatedIds)
+        }else{
+            setConsoleIds(consoleIds => [...consoleIds,e.target.value])
+        }
+
+
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const reviseGame = {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                title : editTitle,
+                "genre_id": parseInt(editGenre),
+                "release_yr": parseInt(editReleaseYr),
+                img : editImg,
+                "console_ids": consoleIds
+            }),
+        };
+
+        fetch(`http://127.0.0.1:5555/games/${game.id}`, reviseGame)
+            .then(res => res.json())
+            .then(data => {
+                const updatedGames = games.map(game => {
+                    if(game.id === data.id){
+                        return data
+                    }else{
+                        return game
+                    }
+                })
+                setGames(updatedGames)
+            })
+
+
+
+
+        setShowEditForm(false)
     }
 
     const consoleSelector = () => {
         return consoles.map(console => (
             <Fragment key = {console.id}>
             <input
-                onClick={handleSelectConsole} 
+                onChange={handleSelectConsole} 
                 type = "checkbox"
                 name = {console.name}
                 value = {console.id}
                 id = {console.name}
-                checked = {consoleIds.includes(console.id)}
+                checked = {consoleIds.includes(console.id) ? 'checked' : null}
                 
             />
             <label htmlFor={console.name}>{console.name}</label>
