@@ -49,9 +49,11 @@ function App() {
   
   return (
     <>
+    <div class="siteTitle">
     <header>
-      <h1>Game Library</h1>
+      <h1>Gamer's Archive</h1>
     </header>
+    </div>
     <NavBar/>
     <Switch>
       <Route exact path="/games">

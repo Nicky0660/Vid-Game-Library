@@ -1,11 +1,23 @@
-import React from "react";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
-
+import React, { useState } from 'react';
 
 
 function NavBar(){
+    // use state hook setting up a nav bar toggle
+    const [isOpen, setIsOpen] = useState(false);
+    const toggleNav = () => {
+        setIsOpen(!isOpen);
+    }
     return(
-        <div className = 'navBar'>
+    <div>
+        {/* added button for on click event */}
+        <div className="toggleButton">
+            <button onClick={toggleNav}>Initialize</button>
+        </div>
+        {/* If isOpen state true, class open is applied. If isOpen false, then no class applied. */}
+        <div className ={`navBar ${isOpen ? 'open' : 'hidden'}`}>
+            
+
            <NavLink  to="/games" > Game List </NavLink>
            
            <NavLink  to="/genres" >  Genre List  </NavLink>
@@ -14,6 +26,7 @@ function NavBar(){
            
            <NavLink to="/newGame"> Enter New Game </NavLink>
         </div>
+    </div>
     )
 }
 export default NavBar;

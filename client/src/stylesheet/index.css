@@ -58,17 +58,43 @@
     font-family: sans-serif;
     padding: 30px;
   }
-  
-  .navBar {
-    background-color:black;
-    overflow: hidden;
-  }
-  
+.siteTitle {
+  color: #000000;
+  text-shadow: 1px 1px lime;
+  text-align: center;
+}
+.navBar {
+  display: none; /* Initially hide the navbar */
+  justify-content: center;
+  border: transparent;
+  background-color:rgba(132, 61, 153, 0.342);
+  padding: 15px;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  /* transition: height 5s ease-in-out;  */
+  height: 0;
+  overflow: hidden;
+}
+.navBar.open {
+  height: 100px; /* Set the desired height when open */
+  display: flex;
+}
+.toggleButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: transparent;
+  border: none;
+}
+.navBar.hidden {
+  display: none; /* Hide it when closed */
+}
+
   .navBar a {
     float: left;
-    color: #ff0000;
+    color: #000000;
     text-align: auto;
-    padding: 14px 16px;
+    padding: 30px 16px;
     text-decoration: none;
     font-size: 30px;
     display: block;
@@ -76,17 +102,26 @@
   
   
   .navBar a:hover {
-    background-color: white;
-    color: yellow;
+    background-color: rgba(42, 18, 148, 0.2);
+    color: rgb(30, 255, 0);
   }
   
   .navBar a.active {
-    background-color: red;
+    background-color: rgba(42, 18, 148, 0.5);
     color: black;
   }
 
   .edit_game {
     margin-right: 3%;
+    color: lime;
+    background-color: rgba(42, 18, 148, 0.5);
+    border: none;
+  }
+  .delete_game {
+    margin-right: 3%;
+    color: lime;
+    background-color: rgba(42, 18, 148, 0.5);
+    border: none;
   }
   /* Styling the main content area / */
   .body {
@@ -104,6 +139,24 @@
     text-align: center;
   }
   /* /this makes the columns/ */
+.game-card {
+  position: relative;
+  width: 240px; 
+  height: 276.8px; 
+  
+}
+
+.game-img {
+  width: 250px;
+  height:250px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.game-title {
+  padding-top: 40px;
+}
   .game-card {
     position: relative;
     overflow: hidden;
@@ -118,20 +171,22 @@
     font-weight: bold;
     font-style: italic;
     color: #000000;  
-  }
-  .game-img {
-    height: 200px ;
-    width: 200px;
-  
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   }
   /* / Styling individual artwork details / */
   .game-card:hover {
     transform:scale(1.2);
-    color:white;
-    text-shadow:1px 1px rgb(0, 110, 255);
+    color:black;
+    text-shadow:1px 1px lime;
     box-shadow:0 0 15px white;
   } 
-
+.genre-container {
+  text-align: center;
+  color: lime;
+}
+.formContainer {
+  text-align: center;
+}
   .console-img-line{
     display:flex;
     justify-content: space-evenly;
@@ -140,3 +195,4 @@
     width: 50px;
     height: 50px;
   }
+

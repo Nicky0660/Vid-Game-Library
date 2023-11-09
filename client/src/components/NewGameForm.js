@@ -65,8 +65,9 @@ function NewGameForm({setGames, consoles}) {
 
 
   return (
-    <div>
+    <div className="formContainer">
       <h3>Add a Game!</h3>
+   
       <form onSubmit={handleSubmit}>
         <input
           label="Title"
