@@ -3,9 +3,11 @@ import GameDetail from"./GameDetail";
 
 function Games({games, consoles, setGames}){
    //  console.log(games)
+   if (!games) return null; 
     const mappedArray = games.map(game =>(
        <GameDetail 
        key={game.id}
+       id={game.id}
        title={game.title}
        releaseYr={game['release_yr']}
        genre={game.genre.name}

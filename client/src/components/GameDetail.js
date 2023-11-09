@@ -1,7 +1,7 @@
 import React, { useState, Fragment }from "react";
 
-function GameDetail({title, releaseYr, genre, img, game, consoles, setGames, games}){
-
+function GameDetail({id,title, releaseYr, genre, img, game, consoles, setGames, games, setSearchGames}){
+    
     const [showEditForm, setShowEditForm] = useState(false)
     const [editTitle, setEditTitle] = useState(title);
     const [editReleaseYr, setEditReleaseYr] = useState(releaseYr);
@@ -11,7 +11,7 @@ function GameDetail({title, releaseYr, genre, img, game, consoles, setGames, gam
     const currentConsoleIds =  game['console_games'].map(g=>g['console_id'])
     
     const [consoleIds, setConsoleIds] = useState(currentConsoleIds);
-console.log(game)
+
     function handleSelectConsole(e){
         if (consoleIds.includes(e.target.value)){
             const updatedIds = consoleIds.filter((id) => id !== e.target.value) 
@@ -46,17 +46,19 @@ console.log(game)
             .then(data => {
                 const updatedGames = games.map(game => {
                     if(game.id === data.id){
-                        return data
+                        return( data,
+                            window.location.reload())
                     }else{
-                        return game
+                        return( game,
+                    window.location.reload())
                     }
                 })
                 setGames(updatedGames)
                 setShowEditForm(false)
-
+                setSearchGames(games)
                 const currentConsoleIds =  data['console_games'].map(g=>g['console_id'])
                 setConsoleIds(currentConsoleIds)
-                
+                debugger
             })
 
     }
@@ -76,7 +78,7 @@ console.log(game)
                 method:"DELETE"
             })
         
-        console.log("here")
+        window.location.reload()
     }
     
     
@@ -134,17 +136,18 @@ console.log(game)
     }
 
     const consoleImgs = game.console_games.map(console => (
-        <img className="console-imgs" src ={console.console.img}/>
+        <img className="console-imgs" src ={console.console.img}key = {console.console.id}/>
     ))
 
     return( <div className = 'game-card'>
+    
     <h3 className="game-title">{title}</h3>
     <img className="game-img" src={img} alt={title}/>
     <p className="game-genre">{genre}</p>
     <p className="game-release_yr">{releaseYr}</p>
     <div className="console-img-line">{consoleImgs}</div>
     
-    <button className = 'edit_game' onClick = { () => setShowEditForm(!showEditForm)}> EDIT GAME </button>
+    <button className = 'edit_game' onClick = { () => setShowEditForm(!showEditForm)} > EDIT GAME </button>
     <button className = 'delete_game' onClick={() => handleDelete(game.id)}> DELETE </button>
     </div>)
 }

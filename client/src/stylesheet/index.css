@@ -183,9 +183,12 @@
 .genre-container {
   text-align: center;
   color: lime;
+  background-color:rgba(132, 61, 153, 0.342);
 }
 .formContainer {
   text-align: center;
+  color: lime;
+
 }
   .console-img-line{
     display:flex;
@@ -196,3 +199,7 @@
     height: 50px;
   }
 
+.console-details{
+  text-align: center;
+  color: lime;
+}
