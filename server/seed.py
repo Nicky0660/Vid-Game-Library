@@ -160,7 +160,7 @@ if __name__ == '__main__':
             ConsoleGames(game_id = 15, console_id=2),
             ConsoleGames(game_id = 15, console_id=3),
             ConsoleGames(game_id = 15, console_id=4),
-            # ConsoleGames(game_id = 15, console_id=5),
+       
             # left out for demo purpose
 
             ConsoleGames(game_id = 16, console_id=1),
@@ -171,14 +171,14 @@ if __name__ == '__main__':
             ConsoleGames(game_id = 17, console_id=2),
             ConsoleGames(game_id = 17, console_id=3),
             ConsoleGames(game_id = 17, console_id=4),
-            ConsoleGames(game_id = 17, console_id=5),
+
 
 
             ConsoleGames(game_id = 18, console_id=1),
             ConsoleGames(game_id = 18, console_id=2),
             ConsoleGames(game_id = 18, console_id=3),
             ConsoleGames(game_id = 18, console_id=4),
-            ConsoleGames(game_id = 18, console_id=5),
+          
 
             ConsoleGames(game_id = 19, console_id=2),
 
@@ -186,7 +186,7 @@ if __name__ == '__main__':
             ConsoleGames(game_id = 20, console_id=2),
             ConsoleGames(game_id = 20, console_id=3),
             ConsoleGames(game_id = 20, console_id=4),
-            ConsoleGames(game_id = 20, console_id=5),
+    
 
             ConsoleGames(game_id = 21, console_id=1),
             ConsoleGames(game_id = 21, console_id=4),
@@ -195,19 +195,19 @@ if __name__ == '__main__':
             ConsoleGames(game_id = 22, console_id=2),
             ConsoleGames(game_id = 22, console_id=3),
             ConsoleGames(game_id = 22, console_id=4),
-            ConsoleGames(game_id = 22, console_id=5),
+        
 
             ConsoleGames(game_id = 23, console_id=1),
             ConsoleGames(game_id = 23, console_id=2),
             ConsoleGames(game_id = 23, console_id=3),
             ConsoleGames(game_id = 23, console_id=4),
-            ConsoleGames(game_id = 23, console_id=5),
+        
 
             ConsoleGames(game_id = 24, console_id=1),
             ConsoleGames(game_id = 24, console_id=2),
             ConsoleGames(game_id = 24, console_id=3),
             ConsoleGames(game_id = 24, console_id=4),
-            ConsoleGames(game_id = 24, console_id=5),
+        
 
             ConsoleGames(game_id = 25, console_id=1),
             ConsoleGames(game_id = 25, console_id=3),
@@ -222,19 +222,19 @@ if __name__ == '__main__':
             ConsoleGames(game_id = 27, console_id=2),
             ConsoleGames(game_id = 27, console_id=3),
             ConsoleGames(game_id = 27, console_id=4),
-            ConsoleGames(game_id = 27, console_id=5),
+        
 
             ConsoleGames(game_id = 28, console_id=1),
             ConsoleGames(game_id = 28, console_id=2),
             ConsoleGames(game_id = 28, console_id=3),
             ConsoleGames(game_id = 28, console_id=4),
-            ConsoleGames(game_id = 28, console_id=5),
+            
 
             ConsoleGames(game_id = 29, console_id=1),
             ConsoleGames(game_id = 29, console_id=2),
             ConsoleGames(game_id = 29, console_id=3),
             ConsoleGames(game_id = 29, console_id=4),
-            ConsoleGames(game_id = 29, console_id=5),
+            
 
             ConsoleGames(game_id = 30, console_id=1),
             ConsoleGames(game_id = 30, console_id=3),
@@ -256,7 +256,7 @@ if __name__ == '__main__':
             ConsoleGames(game_id = 35, console_id=2),
             ConsoleGames(game_id = 35, console_id=3),
             ConsoleGames(game_id = 35, console_id=4),
-            ConsoleGames(game_id = 35, console_id=5),
+            
 
             ConsoleGames(game_id = 36, console_id=3),
             ConsoleGames(game_id = 36, console_id=4),
@@ -265,7 +265,7 @@ if __name__ == '__main__':
             ConsoleGames(game_id = 37, console_id=2),
             ConsoleGames(game_id = 37, console_id=3),
             ConsoleGames(game_id = 37, console_id=4),
-            ConsoleGames(game_id = 37, console_id=5),
+            
 
             ConsoleGames(game_id = 38, console_id=2),
         
@@ -277,7 +277,7 @@ if __name__ == '__main__':
             ConsoleGames(game_id = 40, console_id=2),
             ConsoleGames(game_id = 40, console_id=3),
             ConsoleGames(game_id = 40, console_id=4),
-            ConsoleGames(game_id = 40, console_id=5),
+            
 
             ConsoleGames(game_id = 41, console_id=2),
 
@@ -292,7 +292,7 @@ if __name__ == '__main__':
             ConsoleGames(game_id = 45, console_id=2),
             ConsoleGames(game_id = 45, console_id=3),
             ConsoleGames(game_id = 45, console_id=4),
-            ConsoleGames(game_id = 45, console_id=5),
+            
 
             ConsoleGames(game_id = 46, console_id=2),
 
@@ -300,7 +300,7 @@ if __name__ == '__main__':
             ConsoleGames(game_id = 47, console_id=2),
             ConsoleGames(game_id = 47, console_id=3),
             ConsoleGames(game_id = 47, console_id=4),
-            ConsoleGames(game_id = 47, console_id=5),
+            
 
             ConsoleGames(game_id = 48, console_id=3),
             ConsoleGames(game_id = 48, console_id=4),
@@ -309,7 +309,7 @@ if __name__ == '__main__':
             ConsoleGames(game_id = 49, console_id=2),
             ConsoleGames(game_id = 49, console_id=3),
             ConsoleGames(game_id = 49, console_id=4),
-            ConsoleGames(game_id = 49, console_id=5),
+            
 
             ConsoleGames(game_id = 50, console_id=1),
             ConsoleGames(game_id = 50, console_id=2),

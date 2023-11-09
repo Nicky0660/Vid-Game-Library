@@ -14,6 +14,7 @@ import "../stylesheet/index.css";
 
 function App() {
   const [games, setGames] = useState([])
+  const [filteredGames, setFilteredGames] = useState([])
   const[consoles, setConsoles]= useState([])
   const[genres, setGenres]= useState([])
   const [isPopUpOpen, setPopUpOpen] = useState(false);
@@ -28,9 +29,12 @@ function App() {
 
   useEffect(() => {
     fetch(`/games`)
-      .then((res) => res.json())
-      .then((data) => setGames(data))
-  },[])
+    .then((res) => res.json())
+    .then((data) => {
+      setGames(data);
+      setFilteredGames(data); // Initialize filteredGames with the original list
+    });
+}, [])
   //console.log(data)
 
 
@@ -47,6 +51,25 @@ function App() {
       .then((data) => setGenres(data))
     },[])
   
+    const handleSearch = (searchText) => {
+      const filteredGames = games.filter(game => (
+        game.title.toLowerCase().includes(searchText.toLowerCase()) ||
+        (game['releaseYr'] && game['releaseYr'].toString().includes(searchText)) ||
+        game.genre.name.toLowerCase().includes(searchText.toLowerCase())
+      ));
+      setFilteredGames(filteredGames);
+    }
+
+    // const handleSearch = (searchText) => {
+    //   // Perform search logic here
+    //   const filteredGames = games.filter(game => (
+    //     game.title.toLowerCase().includes(searchText.toLowerCase()) ||
+    //     game['releaseYr'].toString().includes(searchText) ||
+    //     game.genre.name.toLowerCase().includes(searchText.toLowerCase())
+    //   ));
+    //   setGames(filteredGames);
+    // }
+
   return (
     <>
     <div class="siteTitle">
@@ -54,10 +77,10 @@ function App() {
       <h1>Gamer's Archive</h1>
     </header>
     </div>
-    <NavBar/>
+    <NavBar onSearch={handleSearch} /> {/* Pass handleSearch as prop */}
     <Switch>
       <Route exact path="/games">
-        <Games games={games} consoles = {consoles} setGames = {setGames}/>
+        <Games games={filteredGames} consoles = {consoles} setGames = {setGames}/>
       </Route>
       <Route exact path="/genres">
         <Genres genres={genres}/>
