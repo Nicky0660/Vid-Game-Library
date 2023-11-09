@@ -72,7 +72,7 @@ function App() {
 
   return (
     <>
-    <div class="siteTitle">
+    <div className="siteTitle">
     <header>
       <h1>Gamer's Archive</h1>
     </header>

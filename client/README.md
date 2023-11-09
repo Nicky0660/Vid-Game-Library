@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# Game Library Website
+Overview
+This repository contains the code for a full-stack game library website. The purpose of this project is to create a centralized platform to store and manage information about various games, including details like the consoles they are available on, the release year, and the genre.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Features
 
-## Available Scripts
+### Search Functionality:
 
-In the project directory, you can run:
+Users can search for games by title, making it easy to find specific entries in the library.
 
-### `npm start`
+### Add New Games: 
+There's a user-friendly form for adding new games to the library. The Genre id must be utilized to input the correct genre. Once submitted, the website automatically redirects to the updated library.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Edit Game Information: 
+Users can easily edit the information of existing games here you must also utilize the genre id which can be located in the genre id list, ensuring that the library stays up-to-date.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Delete Games: 
+Games can be removed from the library if needed.
 
-### `npm test`
+### Navigation Bar: 
+The website features a navigation bar with quick links to the game list, genre list, console list, and a form for adding new games.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Getting Started
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Ensure you have SQL installed on your system.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Clone the repository: git clone https://github.com/BootsRngr94/Phase_4_Proj_Vid-Game-Library.git
 
-### `npm run eject`
+- Navigate to the project directory: cd Phase_4_Proj_Vid-Game-Library
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Set up the database:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- in a new terminal
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- $pipenv install && pipenv shell 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- $cd server
 
-## Learn More
+- $flask db init
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- $flask db commit -m 'initialize'
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- $flask fb upgrade head
 
-### Code Splitting
+## Run the application: 
+- in a new terminal 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- $cd client
 
-### Analyzing the Bundle Size
+- $npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- &npm start
 
-### Making a Progressive Web App
+## Seed database: 
+- in a new terminal
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- $pipenv shell
 
-### Advanced Configuration
+- $python server/seed.py
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Usage
 
-### Deployment
+- Access the website.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Use the navigation bar to explore the game list, genre list, console list, or add a new game.
 
-### `npm run build` fails to minify
+- Utilize the search functionality to find specific games.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Fork the repository.
+Create a new branch for your feature: git checkout -b feature-name
+
+Commit your changes: git commit -m 'Add some feature'
+
+Push to the branch: git push origin feature-name
+
+Submit a pull request.
+
+## Acknowledgments
+Thanks to our amazing teachers Tyler and Eleanor for inspiration and guidance.
+
+Feel free to customize it further based on your specific needs and preferences! :D

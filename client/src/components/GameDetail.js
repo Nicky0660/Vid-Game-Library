@@ -138,7 +138,6 @@ function GameDetail({id,title, releaseYr, genre, img, game, consoles, setGames, 
     const consoleImgs = game.console_games.map(console => (
         <img className="console-imgs" src ={console.console.img}key = {console.console.id}/>
     ))
-
     return( <div className = 'game-card'>
     
     <h3 className="game-title">{title}</h3>
