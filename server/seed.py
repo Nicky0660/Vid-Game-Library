@@ -27,7 +27,7 @@ if __name__ == '__main__':
         print('Picking Games ...')
         games = [
             Games(title='DarkTide', release_yr=2022, genre_id=7, img = 'https://cdn.mobygames.com/covers/11169388-warhammer-40000-darktide-windows-apps-front-cover.jpg' ),
-            Games(title='God of War', release_yr=2005, genre_id=7, img = 'https://e.snmc.io/lk/l/x/68b4cfef747e6876310b305d30568cc2/10596713'),
+            Games(title='God of War', release_yr=2005, genre_id=7, img = 'https://upload.wikimedia.org/wikipedia/en/b/b5/God_of_War_%282005%29_cover.jpg'),
             Games(title='GoldenEye 007', release_yr=1997, genre_id=3, img = 'https://images.nintendolife.com/0becf36f5e461/goldeneye-007-cover.cover_large.jpg'),
             Games(title='Super Smash Bros', release_yr=1999, genre_id=4, img ='https://upload.wikimedia.org/wikipedia/en/4/42/Supersmashbox.jpg'),
             Games(title='Legend of Zelda', release_yr=1986, genre_id=7, img ='https://upload.wikimedia.org/wikipedia/en/4/41/Legend_of_zelda_cover_%28with_cartridge%29_gold.png'),
@@ -46,7 +46,7 @@ if __name__ == '__main__':
             Games(title='Mega Man', release_yr=1987, genre_id=2, img ='https://images.nintendolife.com/2281194a6f92c/na.large.jpg'),
             Games(title='Metroid', release_yr=1988, genre_id=2, img='https://www.dkoldies.com/product_images/uploaded_images/blacknyellowmetroid.jpg'),
             Games(title='Tetris', release_yr=1985, genre_id=2, img = 'https://upload.wikimedia.org/wikipedia/en/7/7d/Tetris_NES_cover_art.jpg'),
-            Games(title='Left 4 Dead', release_yr=2008, genre_id=3, img ='https://www.csun.edu/~kc213072/images/Left4DeadCover.jpg'),
+            Games(title='Left 4 Dead', release_yr=2008, genre_id=3, img ='https://upload.wikimedia.org/wikipedia/en/5/5b/Left4Dead_Windows_cover.jpg'),
             Games(title='Risk of Rain 2', release_yr=2020, genre_id=1, img='https://www.metacritic.com/a/img/catalog/provider/6/12/6-1-857295-52.jpg'),            
             Games(title='Monster Hunter World', release_yr=2018, genre_id=7, img='https://www.metacritic.com/a/img/catalog/provider/6/12/6-1-660127-52.jpg'),
             Games(title='Rocket League', release_yr=2015, genre_id=9, img='https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/e4e4005042cf598805d581754fe9256f.png'),
@@ -75,7 +75,7 @@ if __name__ == '__main__':
             Games(title='Apex Legends', release_yr=2019, genre_id=3, img = 'https://s3.amazonaws.com/prod-media.gameinformer.com/styles/product_box_art/s3/2019/02/05/207bd1d9/apexlegends.jpg'),
             Games(title='Final Fantasy', release_yr=1987, genre_id=7, img='https://m.media-amazon.com/images/M/MV5BMzViOTU4MzEtNWI5ZS00YWI3LWI3MTktNTdjNjA2OGI0NTM3XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg'),
             Games(title='DOOM 64', release_yr=1997, genre_id=7, img = 'https://steamuserimages-a.akamaihd.net/ugc/796514467311127907/22A92D7B6D7808EAA7B9DF74E1AE34972E9F244E/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false'),
-            Games(title='Castlevania Symphony of the Night', release_yr=1997, genre_id=1, img ='https://cdn.thegamesdb.net/images/original/boxart/front/86427-1.jpg'),
+            Games(title='Castlevania: Symphony of the Night', release_yr=1997, genre_id=1, img ='https://cdn.thegamesdb.net/images/original/boxart/front/86427-1.jpg'),
 
 
         ]

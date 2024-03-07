@@ -1,6 +1,6 @@
 import React, { useState, Fragment }from "react";
 
-function GameDetail({id,title, releaseYr, genre, img, game, consoles, setGames, games, setSearchGames}){
+function GameDetail({id,title, releaseYr, genre, img, game, consoles, setGames, games}){
     
     const [showEditForm, setShowEditForm] = useState(false)
     const [editTitle, setEditTitle] = useState(title);
@@ -55,7 +55,7 @@ function GameDetail({id,title, releaseYr, genre, img, game, consoles, setGames, 
                 })
                 setGames(updatedGames)
                 setShowEditForm(false)
-                setSearchGames(games)
+                // setSearchGames(games)
                 const currentConsoleIds =  data['console_games'].map(g=>g['console_id'])
                 setConsoleIds(currentConsoleIds)
                 debugger

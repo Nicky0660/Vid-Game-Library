@@ -42,7 +42,7 @@ The website features a navigation bar with quick links to the game list, genre l
 
 - $flask db init
 
-- $flask db commit -m 'initialize'
+- $flask db migrate -m 'initialize'
 
 - $flask fb upgrade head
 
