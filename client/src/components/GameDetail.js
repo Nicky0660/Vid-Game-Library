@@ -1,6 +1,6 @@
 import React, { useState, Fragment }from "react";
 
-function GameDetail({id,title, releaseYr, genre, img, game, consoles, setGames, games}){
+function GameDetail({id,title, releaseYr, genre, img, game, consoles, setGames, games, genres}){
     
     const [showEditForm, setShowEditForm] = useState(false)
     const [editTitle, setEditTitle] = useState(title);
@@ -22,6 +22,23 @@ function GameDetail({id,title, releaseYr, genre, img, game, consoles, setGames, 
 
 
     }
+
+    function handleSelectGenre(e) {
+        setEditGenre(parseInt(e.target.value));
+    }
+
+    const genreSelector = () => {
+        return (
+            <select value={editGenre} onChange={handleSelectGenre}>
+                <option value="">Select a Genre</option>
+                {genres.map(genre => (
+                    <option key={genre.id} value={genre.id}>
+                        {genre.name}
+                    </option>
+                ))}
+            </select>
+        );
+    };
    
 
     const handleSubmit = (e) => {
@@ -110,12 +127,7 @@ function GameDetail({id,title, releaseYr, genre, img, game, consoles, setGames, 
                     value={editTitle}
                     onChange={(e) => setEditTitle(e.target.value)}
                     />
-                    <input
-                    label="Genre"
-                    placeholder="Genre"
-                    value={editGenre}
-                    onChange={(e) => setEditGenre(e.target.value)}
-                    />
+                    {genreSelector()}
                     {consoleSelector()}
                     <input
                     label="release_yr"

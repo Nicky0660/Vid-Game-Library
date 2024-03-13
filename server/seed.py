@@ -44,7 +44,7 @@ if __name__ == '__main__':
             Games(title='Call of Duty', release_yr=2003, genre_id=3, img ='https://www.metacritic.com/a/img/catalog/provider/6/12/6-1-52801-52.jpg'),
             Games(title='Skyrim', release_yr=2011, genre_id=7, img='https://i.pinimg.com/736x/23/c8/cb/23c8cb464b57a9cfd6b1312aebc61703.jpg'),
             Games(title='Mega Man', release_yr=1987, genre_id=2, img ='https://images.nintendolife.com/2281194a6f92c/na.large.jpg'),
-            Games(title='Metroid', release_yr=1988, genre_id=2, img='https://www.dkoldies.com/product_images/uploaded_images/blacknyellowmetroid.jpg'),
+            Games(title='Metroid', release_yr=1988, genre_id=2, img='https://i.ebayimg.com/images/g/zGkAAOSwlC1kXEEX/s-l1200.webp'),
             Games(title='Tetris', release_yr=1985, genre_id=2, img = 'https://upload.wikimedia.org/wikipedia/en/7/7d/Tetris_NES_cover_art.jpg'),
             Games(title='Left 4 Dead', release_yr=2008, genre_id=3, img ='https://upload.wikimedia.org/wikipedia/en/5/5b/Left4Dead_Windows_cover.jpg'),
             Games(title='Risk of Rain 2', release_yr=2020, genre_id=1, img='https://www.metacritic.com/a/img/catalog/provider/6/12/6-1-857295-52.jpg'),            

@@ -4,7 +4,7 @@ function GenreDetails({name,id}){
 
     return(
         <div className="genre-details">
-            <h3 className="genre-name">{name} = {id}</h3>
+            <h3 className="genre-name">{name}</h3>
         </div>
 
     )

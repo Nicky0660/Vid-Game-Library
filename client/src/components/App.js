@@ -60,16 +60,6 @@ function App() {
       setFilteredGames(filteredGames);
     }
 
-    // const handleSearch = (searchText) => {
-    //   // Perform search logic here
-    //   const filteredGames = games.filter(game => (
-    //     game.title.toLowerCase().includes(searchText.toLowerCase()) ||
-    //     game['releaseYr'].toString().includes(searchText) ||
-    //     game.genre.name.toLowerCase().includes(searchText.toLowerCase())
-    //   ));
-    //   setGames(filteredGames);
-    // }
-
   return (
     <>
     <div className="siteTitle">
@@ -80,7 +70,7 @@ function App() {
     <NavBar onSearch={handleSearch} /> {/* Pass handleSearch as prop */}
     <Switch>
       <Route exact path="/games">
-        <Games games={filteredGames} consoles = {consoles} setGames = {setGames}/>
+        <Games games={filteredGames} consoles = {consoles} setGames = {setGames} genres={genres}/>
       </Route>
       <Route exact path="/genres">
         <Genres genres={genres}/>
@@ -89,7 +79,7 @@ function App() {
         <Consoles consoles={consoles}/>
       </Route>
       <Route exact path="/newGame">
-        <NewGameForm setGames={setGames} consoles={consoles}/>
+        <NewGameForm setGames={setGames} consoles={consoles} genres={genres}/>
       </Route>
     </Switch>
     <div className="App">

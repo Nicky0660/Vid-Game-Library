@@ -4,12 +4,13 @@ import {useHistory} from "react-router-dom"
 
 // import { Form } from "semantic-ui-react";
 
-function NewGameForm({setGames, consoles}) {
+function NewGameForm({setGames, consoles, genres }) {
   const [title, setTitle] = useState("");
   const [releaseYr, setReleaseYr] = useState("");
   const [genre, setGenre] = useState("");
   const [img, setImg] = useState("");
   const [consoleIds, setConsoleIds] = useState("");
+  
 
   const history = useHistory()
 
@@ -62,6 +63,25 @@ function NewGameForm({setGames, consoles}) {
         ))
     }
 
+    const handleSelectGenre = (e) => {
+      setGenre(e.target.value)
+    }
+
+    const genreSelector = () =>{
+      return (
+        <select value={genre} onChange={handleSelectGenre}>
+          <option value="">Select a Genre</option>
+          {genres.map((genre) => (
+            <option key={genre.id} value={genre.id}>
+              {genre.name}
+            </option>
+          ))}
+        </select>
+      );
+    };
+  
+
+
 
 
   return (
@@ -75,12 +95,7 @@ function NewGameForm({setGames, consoles}) {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <input
-          label="Genre"
-          placeholder="Genre ID#"
-          value={genre}
-          onChange={(e) => setGenre(e.target.value)}
-        />
+        {genreSelector()}
         {consoleSelector()}
         <input
           label="release_yr"
