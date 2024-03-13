@@ -9,10 +9,10 @@ This repository contains the code for a full-stack game library website. The pur
 Users can search for games by title, making it easy to find specific entries in the library.
 
 ### Add New Games: 
-There's a user-friendly form for adding new games to the library. The Genre id must be utilized to input the correct genre. Once submitted, the website automatically redirects to the updated library.
+There's a user-friendly form for adding new games to the library. Once submitted, the website automatically redirects to the updated library.
 
 ### Edit Game Information: 
-Users can easily edit the information of existing games here you must also utilize the genre id which can be located in the genre id list, ensuring that the library stays up-to-date.
+Users can easily edit the information of existing games, ensuring that the library stays up-to-date.
 
 ### Delete Games: 
 Games can be removed from the library if needed.
