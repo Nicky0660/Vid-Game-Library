@@ -54,7 +54,6 @@ function App() {
     const handleSearch = (searchText) => {
       const filteredGames = games.filter(game => (
         game.title.toLowerCase().includes(searchText.toLowerCase()) ||
-        (game['releaseYr'] && game['releaseYr'].toString().includes(searchText)) ||
         game.genre.name.toLowerCase().includes(searchText.toLowerCase())
       ));
       setFilteredGames(filteredGames);
@@ -67,7 +66,7 @@ function App() {
       <h1>Gamer's Archive</h1>
     </header>
     </div>
-    <NavBar onSearch={handleSearch} /> {/* Pass handleSearch as prop */}
+    <NavBar onSearch={handleSearch} /> 
     <Switch>
       <Route exact path="/games">
         <Games games={filteredGames} consoles = {consoles} setGames = {setGames} genres={genres}/>
@@ -85,7 +84,7 @@ function App() {
     <div className="App">
       {isPopUpOpen && <PopUp onClose={closePopUp} />}
       <div className="landing-page">
-        {/* Your landing page content goes here */}
+        
       </div>
     </div>
   </>

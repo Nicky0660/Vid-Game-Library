@@ -77,16 +77,3 @@ class Consoles(db.Model, SerializerMixin):
         else: 
             raise ValueError('Console must have name')
 
-
-
-#optional stretch goal models
-# class UserGames(db.Model, SerializerMixin):
-#     __tablename__='user_games'
-#     game_id = db.Column(db.Integer, db.ForeignKey('games.id'))
-#     console_id = db.Column(db.Integer, db.ForeignKey('consoles.id'))
-#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-
-# class User(db.Model, SerializerMixin):
-#     __tablename__='users'
-#     id = db.Column(db.Integer, primary_key=True)
-#     name = db.Column(db.String)
